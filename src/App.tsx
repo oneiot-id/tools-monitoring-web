@@ -9,8 +9,8 @@ function App() {
     // <Dashboard/>
     <BrowserRouter>
       <Routes>
-        <Route path="/tools-monitoring-web/" element={<LoginPage/>}/>
-        <Route path="/tools-monitoring-web/dashboard" element={<Dashboard/>}/>
+        <Route path="/" element={<LoginPage/>}/>
+        <Route path="/dashboard" element={<Dashboard/>}/>
       </Routes>
     </BrowserRouter>
   );

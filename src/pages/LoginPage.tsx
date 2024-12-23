@@ -47,7 +47,7 @@ export default function LoginPage() {
       setNotification('Password is not match')
     else if(username == userData.username && password == userData.password)
     {
-      navigate('/tools-monitoring-web/dashboard')
+      navigate('/dashboard')
       setNotification('')
     }
     else

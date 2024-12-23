@@ -5,7 +5,7 @@ export default function Dashboard() {
     const navigate = useNavigate()
 
     return(
-        <p onClick={() => navigate('/tools-monitoring-web/')}>dashboard</p>
+        <p onClick={() => navigate('/')}>dashboard</p>
     )
 
 }
