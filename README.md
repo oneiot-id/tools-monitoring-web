@@ -1,2 +1,3 @@
 # Dashboard Monitoring Peralatan Listrik Web
-## https://oneiot-id.github.io/tools-monitoring-web/
+
+Make sure to try the website! [Monitoring Dashboard](https://oneiot-id.github.io/tools-monitoring-web/).
