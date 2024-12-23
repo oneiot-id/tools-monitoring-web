@@ -6,6 +6,7 @@ export default defineConfig({
   plugins: [react()],
   build: {
     outDir: 'build'
-  }
+  },
+  base: '/tools-monitoring-web'
 })
 
