@@ -1,11 +1,11 @@
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 export default function Dashboard() {
 
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
     return(
-        <p onClick={() => navigate('/')}>dashboard</p>
+        <p>oh yeah bitch</p>
     )
 
 }
