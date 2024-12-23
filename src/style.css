@@ -11,7 +11,7 @@ html {
 .login-image {
   height: 100vh;
   position: absolute;
-  left: -18%;
+  left: 0%;
   object-fit: cover;
   z-index: -1;
 }
