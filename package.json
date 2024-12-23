@@ -1,8 +1,8 @@
 {
-  "homepage": "https://oneiot-id.github.io/tools-monitoring-web",
   "name": "tools-monitoring-web",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://oneiot-id.github.io/tools-monitoring-web",
   "type": "module",
   "scripts": {
     "start": "react-scripts start",
