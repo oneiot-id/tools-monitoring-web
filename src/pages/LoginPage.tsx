@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import bgImage from "/backgrounds/23786.jpg";
 import hidePasswordIcon from "/icons/hide (1).png";
 import showPasswordIcon from "/icons/show.png";
-import {doc, getDoc} from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import { IUser } from "../types/user";
 import { useNavigate } from "react-router-dom";
 import { sha256 } from "js-sha256";
@@ -21,7 +21,7 @@ export default function LoginPage() {
   const [isDisabled, setIsDisabled] = useState(true);
   const [passwordVisible, setPasswordVisible] = useState(false);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const target = e.target.name;
@@ -35,25 +35,25 @@ export default function LoginPage() {
   const handleLogin = async () => {
     const username = user.username;
     const password = sha256(user.password);
-
-    const usersRef = doc(db, 'users', username);
+    const usersRef = doc(db, "users", username);
     const userData = (await getDoc(usersRef)).data() as IUser;
 
-    if(userData == null)
-      setNotification('User is not exist')
-    else if(userData.username != username)
-      setNotification('Username is not valid')
-    else if(userData.password != password)
-      setNotification('Password is not match')
-    else if(username == userData.username && password == userData.password)
-    {
-      navigate('/dashboard')
-      setNotification('')
-    }
-    else
-      setNotification('Username or password is not valid')
-    
+    if (userData == null) 
+      setNotification("User is not exist");
+    else if (userData.username != username)
+      setNotification("Username is not valid");
+    else if (userData.password != password)
+      setNotification("Password is not match");
+    //When all is good navigate to dashboard page
+    else if (username == userData.username && password == userData.password) {
+      navigate("/tools-monitoring-web/dashboard");
+      setNotification("");
+      localStorage.setItem('user', JSON.stringify(user))
+    } 
+    else setNotification("Username or password is not valid");
   };
+
+  // console.log("test");
 
   useEffect(() => {
     const disableButton: boolean = user.username == "" || user.password == "";
@@ -61,7 +61,7 @@ export default function LoginPage() {
   }, [user, passwordVisible]);
 
   return (
-    <div className="login-page">
+    <div className="login-page font-inter">
       <img
         src={bgImage}
         className="absolute w-[100vw] h-[100vh]  object-cover lg:-left-[15%]"
@@ -76,7 +76,7 @@ export default function LoginPage() {
           name="username"
           type="text"
           placeholder="Username"
-          className="w-full border-black border-[1.5px] rounded-xl h-[3.75rem] p-2 focus:border-blue-500"
+          className="w-full border-black border-[1.5px] rounded-xl h-[3.75rem] p-2 focus:border-blue-500 focus:outline-none focus:border-[2px] hover:border-[#414FF4] transition-all"
           onChange={handleChange}
         ></input>
         <div className="flex flex-row w-full items-center">
@@ -84,22 +84,21 @@ export default function LoginPage() {
             name="password"
             type={passwordVisible ? "text" : "password"}
             placeholder="Password"
-            className="w-full border-black border-[1.5px] rounded-xl h-[3.75rem] p-2 focus:border-blue-500"
+            className="w-full border-black border-[1.5px] rounded-xl h-[3.75rem] p-2 focus:border-blue-500 focus:outline-none focus:border-[2px] hover:border-[#414FF4] transition-all"
             onChange={handleChange}
           ></input>
           <img
             src={passwordVisible ? hidePasswordIcon : showPasswordIcon}
-            className="absolute flex w-[30px] h-[30px] right-10"
+            className="absolute flex w-[30px] h-[30px] right-10 transition-opacity hover:opacity-60"
+            style={{ cursor: "pointer" }}
             onClick={() => setPasswordVisible(!passwordVisible)}
           />
         </div>
         {notification != "" && (
-          <p className="text-red-500 font-bold self-center">
-            {notification}
-          </p>
+          <p className="text-red-500 font-bold self-center">{notification}</p>
         )}
         <button
-          className="bg-button-blue text-white w-40 h-12 rounded-xl self-center font-bold text-[1.25rem] disabled:bg-gray-500"
+          className="bg-button-blue text-white w-40 h-12 rounded-xl self-center font-bold text-[1.25rem] disabled:bg-gray-500 outline-none transition-opacity hover:opacity-65 duration-200"
           disabled={isDisabled}
           onClick={handleLogin}
         >

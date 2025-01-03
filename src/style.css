@@ -3,6 +3,15 @@ html {
   height: 100%;
 }
 
+* {
+  font-family: 'Inter';
+}
+
+#root{
+  width: 100vw;
+  max-width: 100%;
+}
+
 .login-page {
   display: flex;
   flex-direction: row;
@@ -36,4 +45,120 @@ html {
   border-radius: 0.75rem;
   padding: 0 30px;
   justify-content: space-evenly;
+}
+
+.nav-shadow{
+  /* opacity: ; */
+  /* /* backdrop-filter: blur(2.4px); */
+  background: rgba(244, 244, 244, 0);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  /* border: 3px solid rgba(255, 255, 255, 0.3); */
+}
+
+.box-sh{
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+.box-sh-sm{
+  box-shadow: 0 0px 2px rgba(0, 0, 0, 0.25);
+}
+
+.info{
+  color: #8B8B8B;
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+
+.value{
+  font-weight: 300;
+}
+
+.filter-date{
+  width: 100%;
+  border-radius: 0.75rem;
+  height: 35px;
+  padding: 0.5rem;
+  border: 2px solid #F4F4F4;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes slideDown{
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-down {
+  animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideUp{
+  from {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+.slide-up {
+  animation: slideUp 0.5s ease-in;
+}
+
+@keyframes smoothOpacityShow{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+@keyframes smoothOpacityHide{
+  from{
+    opacity: 1;
+  }
+  to{
+    opacity: 0;
+  }
+}
+
+.show-smooth{
+  animation: smoothOpacityShow 0.2s ease-in;
+}
+
+.hide-smooth{
+  animation: smoothOpacityHide 0.2s ease-out;
+}
+
+.bg-black-transparent{
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+@keyframes rotate180-animation{
+  from{
+    rotate: 0;
+  }
+  to{
+    rotate: 180;
+  }
+}
+
+
+.rotate-180-anim{
+  animation: rotate180-animation 0.5s ease-in;
+}
+
+.rotate-0-anim{
+  animation: rotate180-animation 0.5s ease-in-out backwards;
 }

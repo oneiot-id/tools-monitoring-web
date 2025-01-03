@@ -8,7 +8,11 @@ module.exports = {
     extend: { 
       colors: {
         'button-blue' : '#414FF4'
-      }
+      },
+      fontFamily: {
+        'inter' : 'Inter'
+      },
+      
     },
   },
   plugins: [],
